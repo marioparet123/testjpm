@@ -38,13 +38,14 @@ public class ReportBuilder {
 			BigDecimal amount=instruction.getAmountInUSD();
 			Entity entity=instruction.getInstruction().getEntity();
 			
-			if(instruction.getInstruction().getOperation() == Operation.BUY)
+			//The incoming corresponds with 
+			if(instruction.getInstruction().getOperation() == Operation.SELL)
 			{
 				amountInUSDSettledIncomingEveryday=sumAmount(amountInUSDSettledIncomingEveryday,dateString,amount);
 				amountOfEntitiesBasedOnIncoming=sumAmount(amountOfEntitiesBasedOnIncoming,entity,amount);
 				
 			}
-			//it is the SELL case
+			//it is the BUY
 			else
 			{
 				amountInUSDSettledOutgoingEveryday=sumAmount(amountInUSDSettledOutgoingEveryday,dateString,amount);
